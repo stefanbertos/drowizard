@@ -14,8 +14,14 @@ MyApplication: The application class
 MyApplicationConfiguration: configuration class
 
 todo
-add migrations
-add database
-add call to another rest service
+
 add junit test
 add integration test
+spring boot admin ui - extension 
+changing logging add hoc at prod
+
+curl http://localhost:8080/swagger
+
+
+
+

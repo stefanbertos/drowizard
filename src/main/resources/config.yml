@@ -1,0 +1,52 @@
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  # Logger-specific levels.
+  loggers:
+
+    # Sets the level for 'com.example.app' to DEBUG.
+    com.example.app: DEBUG
+
+    # Redirects SQL logs to a separate file
+    org.hibernate.SQL:
+      level: DEBUG
+
+  appenders:
+    - type: console
+
+
+database:
+  driverClass: org.postgresql.Driver
+  user: myuser
+  password: mypass
+  url: jdbc:postgresql://localhost:5432/mydb
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+
+swagger:
+  resourcePackage: org.example.resources
+
+apiUrl: https://api.frankfurter.app/latest
+
+httpClient:
+  timeout: 5s
+  connectionTimeout: 5s
+  maxConnections: 10
